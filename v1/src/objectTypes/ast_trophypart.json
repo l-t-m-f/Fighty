@@ -1,0 +1,32 @@
+{
+	"name": "AST_TrophyPart",
+	"plugin-id": "Tilemap",
+	"sid": 873813882127603,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 985067995001501
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 244005233430960
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 162,
+		"height": 90,
+		"originX": 0.5061728395061729,
+		"originY": 0.5111111111111111,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 886802,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

@@ -1,0 +1,56 @@
+{
+	"name": "BTN_Arrow",
+	"plugin-id": "Sprite",
+	"sid": 702765220379796,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "CurY",
+			"type": "number",
+			"desc": "",
+			"sid": 690470667266670
+		},
+		{
+			"name": "Side",
+			"type": "number",
+			"desc": "",
+			"sid": 843255779528977
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 739129094903032
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 9,
+						"height": 9,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7155362,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 210974292095496,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
