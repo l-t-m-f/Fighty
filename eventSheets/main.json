@@ -1,0 +1,2177 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Fight"
+		},
+		{
+			"eventType": "comment",
+			"text": "(code by) Émile Fréchette",
+			"background-color": [
+				0.34901960784313724,
+				0.34901960784313724,
+				0.34901960784313724,
+				1
+			]
+		},
+		{
+			"eventType": "variable",
+			"name": "FightMode",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 768815299660474
+		},
+		{
+			"eventType": "variable",
+			"name": "RandomizeTrophy",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 884817182634040
+		},
+		{
+			"eventType": "comment",
+			"text": "Boot"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 709039717834255
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "InitUI",
+					"sid": 943697233011465
+				},
+				{
+					"callFunction": "InitData",
+					"sid": 467093193576888
+				},
+				{
+					"callFunction": "PinElements",
+					"sid": 561251759828883
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 426859613194208
+				},
+				{
+					"callFunction": "UpdatePlayerStats",
+					"sid": 477032242446566
+				}
+			],
+			"sid": 666002168210333
+		},
+		{
+			"functionName": "InitUI",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "flash",
+					"objectClass": "BTN_Fighsty",
+					"sid": 642353617553937,
+					"behaviorType": "Flash",
+					"parameters": {
+						"on-time": "0.25",
+						"off-time": "0.1",
+						"duration": "Infinity"
+					}
+				}
+			],
+			"sid": 790097318667674
+		},
+		{
+			"functionName": "InitData",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 270527895096272,
+					"parameters": {
+						"tag": "\"\"",
+						"file": "TrophyPieceStats.json"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 258438618298290
+				},
+				{
+					"id": "load",
+					"objectClass": "TrophyPieceStats",
+					"sid": 861565568701469,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 509180215805205
+		},
+		{
+			"functionName": "PinElements",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 832503461440683,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 623520798246815,
+							"parameters": {
+								"layer": "1"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 510172476474887,
+							"parameters": {
+								"layer": "2"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 258987055387858,
+							"parameters": {
+								"layer": "3"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 110461318812358,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 673877027038349,
+									"parameters": {
+										"object": "DBG_TrophyBullet",
+										"expression": "DBG_TrophyBullet.Side",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "AST_TrophyPart",
+									"sid": 857024661833160,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "DBG_TrophyBullet",
+										"x": true,
+										"y": true,
+										"angle": false,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 412574213441344
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 304756314472870,
+							"parameters": {
+								"layer": "4"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 684499077057778,
+							"parameters": {
+								"layer": "5"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 750314657764174,
+							"parameters": {
+								"layer": "6"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 769114615618634,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 881577352640814,
+									"parameters": {
+										"object": "DBG_TrophyBullet",
+										"expression": "DBG_TrophyBullet.Side",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object-properties",
+									"objectClass": "AST_TrophyPart",
+									"sid": 824492461289324,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "DBG_TrophyBullet",
+										"x": true,
+										"y": true,
+										"angle": false,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								}
+							],
+							"sid": 606803241453984
+						}
+					],
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GameData",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 697130612731760
+						}
+					],
+					"actions": [
+						{
+							"id": "set-at-xy",
+							"objectClass": "TrophyPieceStats",
+							"sid": 488998712676458,
+							"parameters": {
+								"x": "0",
+								"y": "0",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 876206273139361
+				}
+			],
+			"sid": 269356009478192
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "UI",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 386119087722862,
+							"parameters": {
+								"variable": "RandomizeTrophy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "BTN_Arrow",
+							"sid": 701149028132913,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 771301181541252,
+							"parameters": {
+								"layer": "4",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 898304418747333,
+							"parameters": {
+								"layer": "5",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 190478206964591,
+							"parameters": {
+								"layer": "6",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 987666986772789
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 336560680236438,
+							"parameters": {
+								"variable": "FightMode"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 638541343240330,
+							"parameters": {
+								"variable": "RandomizeTrophy"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "BTN_Arrow",
+							"sid": 654243571725405,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 328726721787242,
+							"parameters": {
+								"layer": "4",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 235041283962669,
+							"parameters": {
+								"layer": "5",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 510179400708403,
+							"parameters": {
+								"layer": "6",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 108668869685656,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "AST_TrophyPart",
+									"sid": 936349191939240,
+									"parameters": {
+										"layer": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "AST_TrophyPart",
+									"sid": 172766906959396,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"tile": "-1",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 585796497502773
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "AST_TrophyPart",
+									"sid": 244932909943568,
+									"parameters": {
+										"layer": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "AST_TrophyPart",
+									"sid": 403340667524697,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"tile": "-1",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 526649497177575
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "AST_TrophyPart",
+									"sid": 622222122109338,
+									"parameters": {
+										"layer": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "AST_TrophyPart",
+									"sid": 993260600674927,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"tile": "-1",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 761508692922887
+						}
+					]
+				}
+			],
+			"sid": 735430865416199
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy Trophy",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Randomize animation"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 562633483976884,
+							"parameters": {
+								"variable": "RandomizeTrophy"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 145089926244273,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "AST_TrophyPart",
+									"sid": 234302415649565,
+									"parameters": {
+										"layer": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "AST_TrophyPart",
+									"sid": 754992139958268,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"tile": "floor(random(18, 27))",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 377035533811110
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "AST_TrophyPart",
+									"sid": 691921353727625,
+									"parameters": {
+										"layer": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "AST_TrophyPart",
+									"sid": 977978443760978,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"tile": "floor(random(9, 18))",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 824706910048676
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-layer",
+									"objectClass": "AST_TrophyPart",
+									"sid": 570536402445843,
+									"parameters": {
+										"layer": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-tile",
+									"objectClass": "AST_TrophyPart",
+									"sid": 665584265620089,
+									"parameters": {
+										"tile-x": "0",
+										"tile-y": "0",
+										"tile": "floor(random(0, 9))",
+										"state": "normal"
+									}
+								}
+							],
+							"sid": 695632117078936
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Set final shape"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 257744068890694,
+							"parameters": {
+								"variable": "RandomizeTrophy"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 561880328588458,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 859123854374180
+								}
+							],
+							"actions": [],
+							"sid": 549927815734872,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "AST_TrophyPart",
+											"sid": 457410613346794,
+											"parameters": {
+												"layer": "6"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SetEnemyTrophyPiece",
+											"sid": 821978455507794,
+											"parameters": [
+												"floor(random(18, 27))",
+												"AST_TrophyPart.UID"
+											]
+										}
+									],
+									"sid": 337008871175532
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "AST_TrophyPart",
+											"sid": 450974304179381,
+											"parameters": {
+												"layer": "5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SetEnemyTrophyPiece",
+											"sid": 565874250096341,
+											"parameters": [
+												"floor(random(9, 18))",
+												"AST_TrophyPart.UID"
+											]
+										}
+									],
+									"sid": 325853805993347
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-layer",
+											"objectClass": "AST_TrophyPart",
+											"sid": 320358759490339,
+											"parameters": {
+												"layer": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "SetEnemyTrophyPiece",
+											"sid": 640582231463312,
+											"parameters": [
+												"floor(random(0, 9))",
+												"AST_TrophyPart.UID"
+											]
+										}
+									],
+									"sid": 704233089885481
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 209781865971923
+		},
+		{
+			"functionName": "UpdatePlayerStats",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 424590502812962,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 111618343852992,
+							"parameters": {
+								"layer": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 788557979374219,
+							"parameters": {
+								"variable": "Player_Pow_bot",
+								"value": "TrophyPieceStats.At(0, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 677583913999119,
+							"parameters": {
+								"variable": "Player_Sharp_bot",
+								"value": "TrophyPieceStats.At(1, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 671290117870444,
+							"parameters": {
+								"variable": "Player_Gild_bot",
+								"value": "TrophyPieceStats.At(2, AST_TrophyPart.TileAt(0, 0))"
+							}
+						}
+					],
+					"sid": 158851019827550
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 800762483038068,
+							"parameters": {
+								"layer": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 578879451026932,
+							"parameters": {
+								"variable": "Player_Pow_mid",
+								"value": "TrophyPieceStats.At(0, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 606485925761927,
+							"parameters": {
+								"variable": "Player_Sharp_mid",
+								"value": "TrophyPieceStats.At(1, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 921210638395602,
+							"parameters": {
+								"variable": "Player_Gild_mid",
+								"value": "TrophyPieceStats.At(2, AST_TrophyPart.TileAt(0, 0))"
+							}
+						}
+					],
+					"sid": 114558971232994
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 416955489801049,
+							"parameters": {
+								"layer": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 316214236881225,
+							"parameters": {
+								"variable": "Player_Pow_top",
+								"value": "TrophyPieceStats.At(0, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 408922248694070,
+							"parameters": {
+								"variable": "Player_Sharp_top",
+								"value": "TrophyPieceStats.At(1, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 905715796696099,
+							"parameters": {
+								"variable": "Player_Gild_top",
+								"value": "TrophyPieceStats.At(2, AST_TrophyPart.TileAt(0, 0))"
+							}
+						}
+					],
+					"sid": 206397399962003
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 237854152463041
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 763542790949755,
+							"parameters": {
+								"variable": "Player_Pow",
+								"value": "Player_Pow_bot + Player_Pow_mid + Player_Pow_top"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 197442366054943,
+							"parameters": {
+								"variable": "Player_Sharp",
+								"value": "Player_Sharp_bot + Player_Sharp_mid + Player_Sharp_top"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 813048500253516,
+							"parameters": {
+								"variable": "Player_Gild",
+								"value": "Player_Gild_bot + Player_Gild_mid + Player_Gild_top"
+							}
+						}
+					],
+					"sid": 469913087277408
+				}
+			]
+		},
+		{
+			"functionName": "UpdateEnemyStats",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 212394332244224,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 586530794706515,
+							"parameters": {
+								"layer": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 844740855996446,
+							"parameters": {
+								"variable": "Enemy_Pow_bot",
+								"value": "TrophyPieceStats.At(0, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 354343743792799,
+							"parameters": {
+								"variable": "Enemy_Sharp_bot",
+								"value": "TrophyPieceStats.At(1, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 322996609330392,
+							"parameters": {
+								"variable": "Enemy_Gild_bot",
+								"value": "TrophyPieceStats.At(2, AST_TrophyPart.TileAt(0, 0))"
+							}
+						}
+					],
+					"sid": 748782022967242
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 257361299585197,
+							"parameters": {
+								"layer": "5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 813307649023398,
+							"parameters": {
+								"variable": "Enemy_Pow_mid",
+								"value": "TrophyPieceStats.At(0, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 462469317017056,
+							"parameters": {
+								"variable": "Enemy_Sharp_mid",
+								"value": "TrophyPieceStats.At(1, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 326994867359130,
+							"parameters": {
+								"variable": "Enemy_Gild_mid",
+								"value": "TrophyPieceStats.At(2, AST_TrophyPart.TileAt(0, 0))"
+							}
+						}
+					],
+					"sid": 360619163799004
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 607309881707287,
+							"parameters": {
+								"layer": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 872357478616721,
+							"parameters": {
+								"variable": "Enemy_Pow_top",
+								"value": "TrophyPieceStats.At(0, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 701502759913730,
+							"parameters": {
+								"variable": "Enemy_Sharp_top",
+								"value": "TrophyPieceStats.At(1, AST_TrophyPart.TileAt(0, 0))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 477430648534423,
+							"parameters": {
+								"variable": "Enemy_Gild_top",
+								"value": "TrophyPieceStats.At(2, AST_TrophyPart.TileAt(0, 0))"
+							}
+						}
+					],
+					"sid": 139278920700986
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 782933732177446
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 774036284917889,
+							"parameters": {
+								"variable": "Enemy_Pow",
+								"value": "Enemy_Pow_bot + Enemy_Pow_mid + Enemy_Pow_top"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 779847131686399,
+							"parameters": {
+								"variable": "Enemy_Sharp",
+								"value": "Enemy_Sharp_bot + Enemy_Sharp_mid + Enemy_Sharp_top"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 691447068363101,
+							"parameters": {
+								"variable": "Enemy_Gild",
+								"value": "Enemy_Gild_bot + Enemy_Gild_mid + Enemy_Gild_top"
+							}
+						}
+					],
+					"sid": 113428307104092
+				}
+			]
+		},
+		{
+			"functionName": "SetPlayerTrophyPiece",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "AssetID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"sid": 604397181821022
+				},
+				{
+					"name": "PieceUID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"sid": 205633022197037
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "AST_TrophyPart",
+					"sid": 708302221592097,
+					"parameters": {
+						"unique-id": "PieceUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-tile",
+					"objectClass": "AST_TrophyPart",
+					"sid": 525811759238801,
+					"parameters": {
+						"tile-x": "0",
+						"tile-y": "0",
+						"tile": "AssetID",
+						"state": "normal"
+					}
+				},
+				{
+					"callFunction": "UpdatePlayerStats",
+					"sid": 761677326129347
+				}
+			],
+			"sid": 902105346891702
+		},
+		{
+			"functionName": "SetEnemyTrophyPiece",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "AssetID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"sid": 296106127419958
+				},
+				{
+					"name": "PieceUID",
+					"type": "number",
+					"initialValue": "-1",
+					"comment": "",
+					"sid": 470479387015330
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "AST_TrophyPart",
+					"sid": 361052450152874,
+					"parameters": {
+						"unique-id": "PieceUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-tile",
+					"objectClass": "AST_TrophyPart",
+					"sid": 428569474520880,
+					"parameters": {
+						"tile-x": "0",
+						"tile-y": "0",
+						"tile": "AssetID",
+						"state": "normal"
+					}
+				},
+				{
+					"callFunction": "UpdateEnemyStats",
+					"sid": 506825361004981
+				}
+			],
+			"sid": 877382138239331
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Trophy making",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 118607527491850,
+							"parameters": {
+								"variable": "FightMode"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 925277498446093,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 437461106494074,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "DBG_PartHitbox"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "BTN_Arrow",
+									"sid": 823559604766268,
+									"parameters": {
+										"instance-variable": "CurY",
+										"value": "DBG_PartHitbox.Yval"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "BTN_Arrow",
+									"sid": 842496065494863,
+									"parameters": {
+										"y": "Self.CurY"
+									}
+								}
+							],
+							"sid": 246942670546606
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 420219631185452,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "BTN_Arrow"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 625022687574785,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "BTN_Arrow",
+											"sid": 208593164234262,
+											"parameters": {
+												"instance-variable": "Side",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 180913133755128,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BTN_Arrow",
+													"sid": 127390782049428,
+													"parameters": {
+														"instance-variable": "CurY",
+														"comparison": 0,
+														"value": "65"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 730220645625416,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-layer",
+															"objectClass": "AST_TrophyPart",
+															"sid": 203467664627623,
+															"parameters": {
+																"layer": "3"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 598304802009732,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-tile-at",
+																	"objectClass": "AST_TrophyPart",
+																	"sid": 916050318359327,
+																	"parameters": {
+																		"tile-x": "0",
+																		"tile-y": "0",
+																		"comparison": 0,
+																		"tile": "26"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 489963544819027,
+																	"parameters": [
+																		"18",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 682986843555457
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 944752498065491
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 441918750685213,
+																	"parameters": [
+																		"AST_TrophyPart.TileAt(0,0) + 1",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 524697524196153
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 529574762110989
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BTN_Arrow",
+													"sid": 806088389916810,
+													"parameters": {
+														"instance-variable": "CurY",
+														"comparison": 0,
+														"value": "75"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 770605674289285,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-layer",
+															"objectClass": "AST_TrophyPart",
+															"sid": 801423777784079,
+															"parameters": {
+																"layer": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 788925706278599,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-tile-at",
+																	"objectClass": "AST_TrophyPart",
+																	"sid": 155820549358990,
+																	"parameters": {
+																		"tile-x": "0",
+																		"tile-y": "0",
+																		"comparison": 0,
+																		"tile": "17"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 434675789387693,
+																	"parameters": [
+																		"9",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 228805978877190
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 402130829777265
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 281493749920981,
+																	"parameters": [
+																		"AST_TrophyPart.TileAt(0,0) + 1",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 269264133615420
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 416966618017173
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BTN_Arrow",
+													"sid": 790175786607500,
+													"parameters": {
+														"instance-variable": "CurY",
+														"comparison": 0,
+														"value": "85"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 743284679676927,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-layer",
+															"objectClass": "AST_TrophyPart",
+															"sid": 776846906587691,
+															"parameters": {
+																"layer": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 728980125894345,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-tile-at",
+																	"objectClass": "AST_TrophyPart",
+																	"sid": 751710679770164,
+																	"parameters": {
+																		"tile-x": "0",
+																		"tile-y": "0",
+																		"comparison": 0,
+																		"tile": "8"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 559773145142246,
+																	"parameters": [
+																		"0",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 287194614440810
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 441788966421501
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 141747510542463,
+																	"parameters": [
+																		"AST_TrophyPart.TileAt(0,0) + 1",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 733644576124956
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 584078305891784
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "BTN_Arrow",
+											"sid": 159660096705945,
+											"parameters": {
+												"instance-variable": "Side",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 400670803772063,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BTN_Arrow",
+													"sid": 489315260123036,
+													"parameters": {
+														"instance-variable": "CurY",
+														"comparison": 0,
+														"value": "65"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 741298401981654,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-layer",
+															"objectClass": "AST_TrophyPart",
+															"sid": 560384889760155,
+															"parameters": {
+																"layer": "3"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 920643457325664,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-tile-at",
+																	"objectClass": "AST_TrophyPart",
+																	"sid": 355486898773605,
+																	"parameters": {
+																		"tile-x": "0",
+																		"tile-y": "0",
+																		"comparison": 0,
+																		"tile": "18"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 192375737306131,
+																	"parameters": [
+																		"26",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 732772438623842
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 103441075142174
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 476110185279505,
+																	"parameters": [
+																		"AST_TrophyPart.TileAt(0,0) - 1",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 779379901745712
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 666369580506858
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BTN_Arrow",
+													"sid": 798276417804257,
+													"parameters": {
+														"instance-variable": "CurY",
+														"comparison": 0,
+														"value": "75"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 440499648303153,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-layer",
+															"objectClass": "AST_TrophyPart",
+															"sid": 110696450820864,
+															"parameters": {
+																"layer": "2"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 259721097795330,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-tile-at",
+																	"objectClass": "AST_TrophyPart",
+																	"sid": 640022241771679,
+																	"parameters": {
+																		"tile-x": "0",
+																		"tile-y": "0",
+																		"comparison": 0,
+																		"tile": "9"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 932792890809832,
+																	"parameters": [
+																		"17",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 837422747903683
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 421238041167333
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 495292371717203,
+																	"parameters": [
+																		"AST_TrophyPart.TileAt(0,0) - 1",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 412461030316912
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 456044077651828
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "BTN_Arrow",
+													"sid": 195322906605715,
+													"parameters": {
+														"instance-variable": "CurY",
+														"comparison": 0,
+														"value": "85"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 571420596667765,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-on-layer",
+															"objectClass": "AST_TrophyPart",
+															"sid": 824340159339670,
+															"parameters": {
+																"layer": "1"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 979882629497759,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-tile-at",
+																	"objectClass": "AST_TrophyPart",
+																	"sid": 283065315826289,
+																	"parameters": {
+																		"tile-x": "0",
+																		"tile-y": "0",
+																		"comparison": 0,
+																		"tile": "0"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 842902058129643,
+																	"parameters": [
+																		"8",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 303305967976610
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 617062332104752
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "SetPlayerTrophyPiece",
+																	"sid": 169721712898518,
+																	"parameters": [
+																		"AST_TrophyPart.TileAt(0,0) - 1",
+																		"AST_TrophyPart.UID"
+																	]
+																}
+															],
+															"sid": 325430941013434
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 201976028168922
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Fighsty",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 589815174433880,
+							"parameters": {
+								"variable": "FightMode"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 563022553559558,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 396754813464931,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "BTN_Fighsty"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 308877215293601,
+									"parameters": {
+										"variable": "FightMode",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 830464769094849,
+									"parameters": {
+										"variable": "RandomizeTrophy",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "BTN_Arrow",
+									"sid": 298314428458279,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "BTN_Fighsty",
+									"sid": 525023652705473,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "1"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 150149315573968,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 557563310920136,
+									"parameters": {
+										"variable": "RandomizeTrophy",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "DBG_TrophyBullet",
+									"sid": 429319709721584,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 329996470962560
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 140498624036852,
+							"parameters": {
+								"variable": "FightMode"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 582171372439441,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 757339158323840,
+									"parameters": {
+										"interval-seconds": "0.25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-acceleration",
+									"objectClass": "DBG_TrophyBullet",
+									"sid": 436157787527935,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"acceleration": "Self.Bullet.Acceleration * 2"
+									}
+								}
+							],
+							"sid": 319020681597829
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "DBG_TrophyBullet",
+									"sid": 860059467821205,
+									"parameters": {
+										"object": "DBG_TrophyBullet"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "BTN_Fighsty",
+									"sid": 363119566003514,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.25",
+										"off-time": "0.1",
+										"duration": "Infinity"
+									}
+								},
+								{
+									"callFunction": "CalculateFightOutcome",
+									"sid": 469317807526951
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 779224653191756
+								},
+								{
+									"callFunction": "ResolveFighsty",
+									"sid": 164046650190530
+								}
+							],
+							"sid": 491823870909548
+						}
+					]
+				},
+				{
+					"functionName": "ResolveFighsty",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "DBG_TrophyBullet",
+							"sid": 271499700550301,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "DBG_TrophyBullet",
+							"sid": 880969517905280,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "2"
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "DBG_TrophyBullet",
+							"sid": 911353390751473,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"acceleration": "1.5"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 652075526761804,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 200374531324344,
+							"parameters": {
+								"variable": "FightMode",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 668922852583755,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 576518166802772,
+									"parameters": {
+										"object": "DBG_TrophyBullet",
+										"expression": "DBG_TrophyBullet.Side",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "DBG_TrophyBullet",
+									"sid": 420130903658229,
+									"parameters": {
+										"x": "18",
+										"y": "60"
+									}
+								}
+							],
+							"sid": 200049042757749
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 588026285633025,
+									"parameters": {
+										"object": "DBG_TrophyBullet",
+										"expression": "DBG_TrophyBullet.Side",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "DBG_TrophyBullet",
+									"sid": 799461795789575,
+									"parameters": {
+										"x": "90",
+										"y": "60"
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "DBG_TrophyBullet",
+									"sid": 836730657829664,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "180"
+									}
+								}
+							],
+							"sid": 496008978347323
+						}
+					]
+				}
+			],
+			"sid": 555545856953817
+		}
+	],
+	"sid": 606655819657891
+}

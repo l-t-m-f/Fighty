@@ -1,0 +1,760 @@
+{
+	"name": "Fight",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Player_Pow",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 746220631907269
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Sharp",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 296274336129266
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Gild",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 788766111565272
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Pow",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 549562192465832
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Sharp",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 208840997675859
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Gild",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 335533897412287
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Pow_top",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 958793951478465
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Sharp_top",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 806439711510392
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Gild_top",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 854385649941171
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Pow_top",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 107142901065892
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Sharp_top",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 544433574313676
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Gild_top",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 918480320954545
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Pow_mid",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 174026854273953
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Sharp_mid",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 729858611782578
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Gild_mid",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 750888048917633
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Pow_mid",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 384036362568185
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Sharp_mid",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 558973717190822
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Gild_mid",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 202196871285221
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Pow_bot",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 207490918567609
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Sharp_bot",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 229519583369508
+		},
+		{
+			"eventType": "variable",
+			"name": "Player_Gild_bot",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 811462389646428
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Pow_bot",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 651385094450569
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Sharp_bot",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 748461011485925
+		},
+		{
+			"eventType": "variable",
+			"name": "Enemy_Gild_bot",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 263252510475134
+		},
+		{
+			"functionName": "PlayerTakeDamage",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 396947424919856,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 650327863176232,
+							"parameters": {
+								"layer": "1"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 897810869393923,
+							"parameters": {
+								"layer": "2"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 810625189448845,
+							"parameters": {
+								"layer": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "AST_TrophyPart",
+							"sid": 146100886228531,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "AST_TrophyPart",
+							"sid": 614201846893676,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.05",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 510224232412777,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "AST_TrophyPart",
+							"sid": 280670764110254,
+							"parameters": {
+								"color": "rgbEx(255, 255, 255)"
+							}
+						}
+					],
+					"sid": 736087852635954,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"functionName": "EnemyTakeDamage",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 404932455156410,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 514681499458374,
+							"parameters": {
+								"layer": "4"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 629865797377588,
+							"parameters": {
+								"layer": "5"
+							}
+						},
+						{
+							"id": "is-on-layer",
+							"objectClass": "AST_TrophyPart",
+							"sid": 159723074267798,
+							"parameters": {
+								"layer": "6"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "AST_TrophyPart",
+							"sid": 732484355124504,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "AST_TrophyPart",
+							"sid": 338189772329614,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.05",
+								"off-time": "0.1",
+								"duration": "1.0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 396083034740598,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "AST_TrophyPart",
+							"sid": 493416365327968,
+							"parameters": {
+								"color": "rgbEx(255, 255, 255)"
+							}
+						}
+					],
+					"sid": 347919379144899,
+					"isOrBlock": true
+				}
+			]
+		},
+		{
+			"functionName": "CalculateFightOutcome",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 910599618552686,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 307641091147548,
+							"parameters": {
+								"variable": "Player_Pow",
+								"comparison": 4,
+								"value": "Player_Sharp"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 612842728645488,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 319223276371223,
+									"parameters": {
+										"first-value": "Player_Pow",
+										"comparison": 4,
+										"second-value": "Enemy_Pow"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 906994677839110,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 632322626453906,
+											"parameters": {
+												"first-value": "Player_Sharp + 1",
+												"comparison": 4,
+												"second-value": "Enemy_Sharp"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 856491481977058,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "54",
+												"duration": "0.3",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"callFunction": "EnemyTakeDamage",
+											"sid": 625820464538099
+										}
+									],
+									"sid": 654699542986078
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 622151840978228
+										}
+									],
+									"actions": [
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 448294497204837,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "20",
+												"duration": "1.2",
+												"mode": "reducing-magnitude"
+											}
+										}
+									],
+									"sid": 645701925933264
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 254484503958868
+								}
+							],
+							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Camera",
+									"sid": 159050542749791,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "70",
+										"duration": "0.3",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
+									"callFunction": "PlayerTakeDamage",
+									"sid": 465478468039254
+								}
+							],
+							"sid": 544242737570098
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 591584647139383
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 768876998747009,
+							"parameters": {
+								"variable": "Player_Sharp",
+								"comparison": 4,
+								"value": "Player_Pow"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 129413921973557,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 849697869109836,
+									"parameters": {
+										"first-value": "Player_Sharp",
+										"comparison": 4,
+										"second-value": "Enemy_Sharp"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 642441688335789,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 348222383715153,
+											"parameters": {
+												"first-value": "Player_Pow + 1",
+												"comparison": 4,
+												"second-value": "Enemy_Pow"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 806174627838594,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "54",
+												"duration": "0.3",
+												"mode": "reducing-magnitude"
+											}
+										},
+										{
+											"callFunction": "EnemyTakeDamage",
+											"sid": 637555580214526
+										}
+									],
+									"sid": 561249462885526
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 252265788544486
+										}
+									],
+									"actions": [
+										{
+											"id": "shake",
+											"objectClass": "Camera",
+											"sid": 698216055440138,
+											"behaviorType": "ScrollTo",
+											"parameters": {
+												"magnitude": "20",
+												"duration": "1.2",
+												"mode": "reducing-magnitude"
+											}
+										}
+									],
+									"sid": 659105108988471
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 993095183694440
+								}
+							],
+							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Camera",
+									"sid": 543157169008929,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "70",
+										"duration": "0.3",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
+									"callFunction": "PlayerTakeDamage",
+									"sid": 291113068878989
+								}
+							],
+							"sid": 105033959124872
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 352303553831934
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 344881291215305,
+							"parameters": {
+								"variable": "Player_Pow",
+								"comparison": 0,
+								"value": "Player_Sharp"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 518078466140748,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 564288470338605,
+									"parameters": {
+										"first-value": "Player_Gild",
+										"comparison": 4,
+										"second-value": "Enemy_Gild"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Camera",
+									"sid": 343398881239591,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "32",
+										"duration": "0.3",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
+									"callFunction": "EnemyTakeDamage",
+									"sid": 772078696175003
+								}
+							],
+							"sid": 461477352946770
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 665514499585622
+								}
+							],
+							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Camera",
+									"sid": 983079523815980,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "70",
+										"duration": "0.3",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
+									"callFunction": "PlayerTakeDamage",
+									"sid": 449458425300875
+								}
+							],
+							"sid": 565162390789381
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 631030523454275
+}
